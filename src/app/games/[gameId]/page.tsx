@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import { GamePlayer } from '@/components/games/GamePlayer';
 import { GameInfo } from '@/components/games/GameInfo';
 import { GameStats } from '@/components/games/GameStats';
-import { RelatedGames } from '@/components/games/RelatedGames';
 
 interface GamePageProps {
   params: {
@@ -192,10 +191,6 @@ export default async function GamePage({ params }: GamePageProps) {
         </div>
       </div>
 
-      {/* Related Games */}
-      <div className="mt-16">
-        <RelatedGames currentGame={game} />
-      </div>
     </div>
   );
 }

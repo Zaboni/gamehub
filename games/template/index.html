@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Template</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .game-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-area {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .score {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .game-button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+        }
+
+        .game-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-button:active {
+            transform: translateY(0);
+        }
+
+        .instructions {
+            margin-top: 20px;
+            font-size: 1rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .click-area {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 20px auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .click-area:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .click-area:active {
+            transform: scale(0.95);
+        }
+
+        @media (max-width: 768px) {
+            .game-container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .click-area {
+                width: 150px;
+                height: 150px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>🎮 Game Template</h1>
+        
+        <div class="game-area">
+            <div class="score">Score: <span id="score">0</span></div>
+            
+            <div class="click-area" id="clickArea">
+                Click Me!
+            </div>
+            
+            <button class="game-button" onclick="resetGame()">Reset Game</button>
+        </div>
+        
+        <div class="instructions">
+            <strong>How to Play:</strong><br>
+            Click the circle to increase your score!<br>
+            This is a simple template - replace with your own game logic.
+        </div>
+    </div>
+
+    <script>
+        let score = 0;
+        let clickCount = 0;
+        
+        const scoreElement = document.getElementById('score');
+        const clickArea = document.getElementById('clickArea');
+        
+        // Game logic
+        clickArea.addEventListener('click', function() {
+            score += 10;
+            clickCount++;
+            updateScore();
+            
+            // Add some visual feedback
+            this.style.background = getRandomGradient();
+            
+            // Change text based on clicks
+            if (clickCount < 5) {
+                this.textContent = 'Great!';
+            } else if (clickCount < 10) {
+                this.textContent = 'Awesome!';
+            } else if (clickCount < 20) {
+                this.textContent = 'Amazing!';
+            } else {
+                this.textContent = 'Incredible!';
+            }
+            
+            // Reset text after a delay
+            setTimeout(() => {
+                this.textContent = 'Click Me!';
+            }, 500);
+        });
+        
+        function updateScore() {
+            scoreElement.textContent = score;
+        }
+        
+        function resetGame() {
+            score = 0;
+            clickCount = 0;
+            updateScore();
+            clickArea.style.background = 'linear-gradient(45deg, #4ecdc4, #44a08d)';
+            clickArea.textContent = 'Click Me!';
+        }
+        
+        function getRandomGradient() {
+            const colors = [
+                'linear-gradient(45deg, #ff6b6b, #ee5a24)',
+                'linear-gradient(45deg, #4ecdc4, #44a08d)',
+                'linear-gradient(45deg, #a8edea, #fed6e3)',
+                'linear-gradient(45deg, #ffecd2, #fcb69f)',
+                'linear-gradient(45deg, #667eea, #764ba2)',
+                'linear-gradient(45deg, #f093fb, #f5576c)',
+                'linear-gradient(45deg, #4facfe, #00f2fe)'
+            ];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+        
+        // Initialize game
+        updateScore();
+        
+        // Add keyboard support
+        document.addEventListener('keydown', function(event) {
+            if (event.code === 'Space') {
+                event.preventDefault();
+                clickArea.click();
+            } else if (event.code === 'KeyR') {
+                resetGame();
+            }
+        });
+        
+        console.log('🎮 Game Template loaded successfully!');
+        console.log('Replace this template with your own game logic.');
+    </script>
+</body>
+</html>

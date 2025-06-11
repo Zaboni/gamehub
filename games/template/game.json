@@ -1,0 +1,30 @@
+{
+  "title": "Game Template",
+  "description": "This is a template for creating new games on GameHub. It demonstrates the basic structure and requirements for a game submission. Replace this description with details about your game, including gameplay mechanics, objectives, and any special features. The description should be informative and engaging to help players understand what to expect from your game.",
+  "shortDescription": "A simple template for creating new games",
+  "author": "Your Name",
+  "authorGithub": "your-github-username",
+  "category": "Casual",
+  "tags": ["template", "example", "tutorial"],
+  "difficulty": "Easy",
+  "version": "1.0.0",
+  "requirements": {
+    "browser": ["Chrome", "Firefox", "Safari", "Edge"],
+    "mobile": true,
+    "keyboard": true,
+    "mouse": true,
+    "touch": true
+  },
+  "controls": {
+    "mouse": "Click the circle to increase your score",
+    "keyboard": "Press Space to click, R to reset",
+    "touch": "Tap the circle to increase your score"
+  },
+  "features": [
+    "Simple click-based gameplay",
+    "Score tracking",
+    "Visual feedback",
+    "Keyboard support",
+    "Mobile-friendly design"
+  ]
+}

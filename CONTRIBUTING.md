@@ -69,7 +69,7 @@ Your game must:
 
 ### Game Structure
 
-Create your game in the `games/` directory:
+Create your game in the `public/games/` directory:
 
 ```
 public/games/your-game-name/
@@ -83,6 +83,46 @@ public/games/your-game-name/
 ├── assets/           # Game assets
 └── README.md         # Game documentation (recommended)
 ```
+
+### Step-by-Step Guide to Add Your Game
+
+1. **Create your game directory**
+   ```bash
+   mkdir public/games/your-game-name
+   cd public/games/your-game-name
+   ```
+
+2. **Add your game files**
+   - Create `index.html` as your main game file
+   - Add all necessary assets (CSS, JS, images, sounds)
+   - Organize files in subdirectories if needed (src/, assets/, etc.)
+
+3. **Create game.json metadata file**
+   - Copy the template below and fill in your game's information
+   - Ensure all required fields are completed
+   - Use appropriate category and difficulty level
+
+4. **Add a thumbnail image**
+   - Create a 400x300px PNG image showing your game
+   - Name it `thumbnail.png` and place it in your game directory
+   - Make sure it's visually appealing and represents your game well
+
+5. **Test your game locally**
+   ```bash
+   # From the project root
+   npm run dev
+   ```
+   - Navigate to `http://localhost:3000/games/your-game-name`
+   - Test on different screen sizes and browsers
+   - Ensure all functionality works correctly
+
+6. **Add documentation (recommended)**
+   - Create a `README.md` file in your game directory
+   - Include game description, controls, and any special instructions
+   - Add screenshots if helpful
+
+7. **Submit your pull request**
+   - Follow the pull request guidelines below
 
 ### Game Metadata (game.json)
 

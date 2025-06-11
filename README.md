@@ -15,7 +15,7 @@ An open-source platform for web games built by the community, for the community.
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 - Git
 
@@ -46,6 +46,9 @@ An open-source platform for web games built by the community, for the community.
 gamehub/
 ├── src/
 │   ├── app/                 # Next.js app router pages
+│   │   ├── games/          # Game display pages
+│   │   ├── api/            # API routes
+│   │   └── contribute/     # Contribution pages
 │   ├── components/          # Reusable React components
 │   │   ├── ui/             # Basic UI components
 │   │   ├── layout/         # Layout components
@@ -57,10 +60,12 @@ gamehub/
 │   │   └── constants/      # App constants
 │   ├── hooks/              # Custom React hooks
 │   └── styles/             # Global styles
-├── games/                  # Game submissions directory
-│   ├── template/           # Game template for contributors
-│   └── [game-name]/        # Individual game directories
 ├── public/                 # Static assets
+│   └── games/              # Game submissions directory
+│       ├── memory-cards/   # Individual game directories
+│       ├── puzzle-master/
+│       ├── space-defender/
+│       └── space-runner/
 ├── docs/                   # Documentation
 └── README.md
 ```
@@ -71,7 +76,7 @@ We welcome game contributions! Here's how to add your game:
 
 ### Option 1: Use the Game Template
 
-1. Copy the template from `games/template/`
+1. Copy the template from `public/games/template/` (if available)
 2. Rename the folder to your game's name
 3. Replace the template files with your game
 4. Update the game metadata
@@ -79,10 +84,10 @@ We welcome game contributions! Here's how to add your game:
 
 ### Option 2: Follow the Game Structure
 
-Create a new directory in `games/` with:
+Create a new directory in `public/games/` with:
 
 ```
-games/your-game-name/
+public/games/your-game-name/
 ├── index.html          # Main game file
 ├── game.json          # Game metadata
 ├── thumbnail.png      # Game thumbnail (400x300)
@@ -145,7 +150,6 @@ Create a `game.json` file with the following structure:
 
 - [Game Development Guide](docs/GAME_DEVELOPMENT.md)
 - [Contributing Guidelines](CONTRIBUTING.md)
-- [API Documentation](docs/API.md)
 
 ## 🤝 Contributing
 

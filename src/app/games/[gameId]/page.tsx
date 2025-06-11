@@ -128,35 +128,6 @@ async function getGame(gameId: string) {
       },
     },
     // Default fallback for other games
-    'default': {
-      id: gameId,
-      title: 'Sample Game',
-      description: 'This is a sample game description that would be loaded from your database.',
-      shortDescription: 'A fun sample game',
-      author: 'Sample Developer',
-      authorGithub: 'sample-dev',
-      category: 'Puzzle' as const,
-      tags: ['puzzle', 'logic', 'brain-teaser'],
-      difficulty: 'Medium' as const,
-      thumbnail: '/games/sample/thumbnail.png',
-      screenshots: ['/games/sample/screenshot1.png', '/games/sample/screenshot2.png'],
-      playUrl: '/games/sample/index.html',
-      sourceUrl: 'https://github.com/sample-dev/sample-game',
-      createdAt: '2024-01-15',
-      updatedAt: '2024-01-20',
-      featured: false,
-      playCount: 1250,
-      rating: 4.5,
-      ratingCount: 23,
-      status: 'active' as const,
-      requirements: {
-        browser: ['Chrome', 'Firefox', 'Safari'],
-        mobile: true,
-        keyboard: true,
-        mouse: true,
-        touch: true,
-      },
-    }
   };
 
   // Simulate API delay
@@ -192,7 +163,6 @@ export async function generateStaticParams() {
     { gameId: 'puzzle-master' },
     { gameId: 'space-runner' },
     { gameId: 'memory-cards' },
-    { gameId: 'strategy-conquest' },
   ];
 }
 

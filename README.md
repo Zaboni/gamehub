@@ -23,7 +23,7 @@ An open-source platform for web games built by the community, for the community.
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/gamehub.git
+   git clone https://github.com/zaboni/gamehub.git
    cd gamehub
    ```
 

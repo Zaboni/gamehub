@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
   url: 'https://gamehub.dev',
   ogImage: '/og-image.png',
   links: {
-    github: 'https://github.com/your-username/gamehub',
+    github: 'https://github.com/zaboni/gamehub',
     discord: 'https://discord.gg/gamehub',
   },
 };

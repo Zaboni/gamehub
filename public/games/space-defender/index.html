@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Defender</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+        }
+        
+        #gameContainer {
+            position: relative;
+            border: 2px solid #333;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+        
+        canvas {
+            display: block;
+            background: #000;
+            border-radius: 6px;
+        }
+        
+        #instructions {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 12px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 300px;
+        }
+        
+        #gameOver {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+        }
+        
+        .game-over-title {
+            color: #ff0000;
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        
+        .final-score {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .restart-text {
+            font-size: 16px;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        
+        <div id="instructions">
+            <div><strong>Controls:</strong></div>
+            <div>Arrow Keys - Move spaceship</div>
+            <div>R - Restart (when game over)</div>
+            <div>Q - Quit (when game over)</div>
+            <br>
+            <div><strong>Objectives:</strong></div>
+            <div>🟢 Green Power-ups: +50 points</div>
+            <div>🟡 Yellow Coins: +10 points</div>
+            <div>🔴 Red Asteroids: -20 points, -1 life</div>
+        </div>
+        
+        <div id="gameOver">
+            <div class="game-over-title">GAME OVER</div>
+            <div class="final-score" id="finalScore">Final Score: 0</div>
+            <div class="restart-text">Press R to restart or Q to quit</div>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>

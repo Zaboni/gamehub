@@ -21,12 +21,6 @@ export default function HomePage() {
     },
   ];
 
-  const stats = [
-    { label: 'Games Available', value: '50+' },
-    { label: 'Active Contributors', value: '25+' },
-    { label: 'Total Plays', value: '10K+' },
-    { label: 'GitHub Stars', value: '500+' },
-  ];
 
   return (
     <div className="flex flex-col">
@@ -65,30 +59,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold text-primary-600 mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-secondary-600 font-medium">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Features Section */}
       <section className="py-20 bg-secondary-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-secondary-900 mb-4">
-              Why Choose GameHub?
+              Our Goal
             </h2>
             <p className="text-xl text-secondary-600 max-w-2xl mx-auto">
               More than just a game platform - it's a community of developers 

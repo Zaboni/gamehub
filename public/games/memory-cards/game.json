@@ -1,0 +1,22 @@
+{
+  "title": "Memory Cards",
+  "description": "Classic memory card matching game with beautiful themes and difficulty levels. Test your memory by flipping cards and finding matching pairs. Features multiple difficulty levels from easy 4x4 grids to challenging 6x6 grids. Beautiful card designs with smooth animations and sound effects. Track your best times and challenge yourself to improve. Perfect for all ages and great for brain training!",
+  "shortDescription": "Match cards and test your memory",
+  "author": "MemoryMaster",
+  "authorGithub": "memorymaster",
+  "category": "Casual",
+  "tags": ["memory", "cards", "matching", "casual"],
+  "difficulty": "Easy",
+  "version": "1.0.0",
+  "requirements": {
+    "browser": ["Chrome", "Firefox", "Safari", "Edge"],
+    "mobile": true,
+    "keyboard": false,
+    "mouse": true,
+    "touch": true
+  },
+  "controls": {
+    "mouse": "Click cards to flip them",
+    "touch": "Tap cards to flip them"
+  }
+}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Runner</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(180deg, #0a0a23 0%, #1a1a3a 50%, #2a2a5a 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+        }
+        
+        #gameContainer {
+            position: relative;
+            border: 3px solid #4a90e2;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(74, 144, 226, 0.5);
+            background: #000;
+        }
+        
+        canvas {
+            display: block;
+            border-radius: 9px;
+        }
+        
+        #ui {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            font-size: 18px;
+            z-index: 10;
+        }
+        
+        #instructions {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 14px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 8px;
+            max-width: 250px;
+            z-index: 10;
+        }
+        
+        #gameOver {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #4a90e2;
+            display: none;
+            z-index: 20;
+        }
+        
+        .game-over-title {
+            color: #ff4444;
+            font-size: 36px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px #ff4444;
+        }
+        
+        .final-score {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #4a90e2;
+        }
+        
+        .restart-text {
+            font-size: 16px;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            background: #4a90e2;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 5px;
+            transition: background 0.2s ease;
+        }
+        
+        .btn:hover {
+            background: #357abd;
+        }
+        
+        #startScreen {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            z-index: 15;
+        }
+        
+        .game-title {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #4a90e2;
+            text-shadow: 0 0 20px #4a90e2;
+        }
+        
+        .start-instructions {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="900" height="600"></canvas>
+        
+        <div id="ui">
+            <div>Score: <span id="scoreDisplay">0</span></div>
+            <div>Distance: <span id="distanceDisplay">0</span>m</div>
+            <div>Speed: <span id="speedDisplay">1.0</span>x</div>
+        </div>
+        
+        <div id="instructions">
+            <div><strong>🚀 Space Runner</strong></div>
+            <div style="margin: 10px 0;">
+                <div>🔼 Up Arrow - Move Up</div>
+                <div>🔽 Down Arrow - Move Down</div>
+                <div>⬅️ Left Arrow - Slow Down</div>
+                <div>➡️ Right Arrow - Speed Up</div>
+            </div>
+            <div><strong>Collect:</strong></div>
+            <div>⭐ Stars - Points</div>
+            <div>⚡ Power-ups - Boost</div>
+            <div><strong>Avoid:</strong></div>
+            <div>🌑 Asteroids - Game Over</div>
+        </div>
+        
+        <div id="startScreen">
+            <div class="game-title">🚀 SPACE RUNNER</div>
+            <div class="start-instructions">
+                Navigate through space, collect stars, and avoid asteroids!<br>
+                The longer you survive, the faster you go!
+            </div>
+            <button class="btn" onclick="startGame()">Start Game</button>
+        </div>
+        
+        <div id="gameOver">
+            <div class="game-over-title">💥 GAME OVER</div>
+            <div class="final-score">Final Score: <span id="finalScore">0</span></div>
+            <div class="final-score">Distance: <span id="finalDistance">0</span>m</div>
+            <div class="restart-text">You crashed into an asteroid!</div>
+            <button class="btn" onclick="restartGame()">Play Again</button>
+            <button class="btn" onclick="showStartScreen()">Main Menu</button>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>

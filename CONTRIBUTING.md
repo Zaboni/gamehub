@@ -37,7 +37,7 @@ Thank you for your interest in contributing to GameHub! This document provides g
 
 1. **Fork the repository**
    ```bash
-   git clone https://github.com/your-username/gamehub.git
+   git clone https://github.com/zaboni/gamehub.git
    cd gamehub
    ```
 
@@ -72,7 +72,7 @@ Your game must:
 Create your game in the `games/` directory:
 
 ```
-games/your-game-name/
+public/games/your-game-name/
 ├── index.html          # Main game file
 ├── game.json          # Game metadata (required)
 ├── thumbnail.png      # Game thumbnail 400x300px (required)

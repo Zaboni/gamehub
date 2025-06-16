@@ -38,10 +38,6 @@ export const ROUTES = {
   games: '/games',
   game: (id: string) => `/games/${id}`,
   contribute: '/contribute',
-  api: {
-    games: '/api/games',
-    game: (id: string) => `/api/games/${id}`,
-  },
 } as const;
 
 export const PAGINATION = {

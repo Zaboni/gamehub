@@ -3,119 +3,7 @@
 import { useState, useEffect } from 'react';
 import { GameCard } from './GameCard';
 import { Game } from '@/lib/types/game';
-
-// Mock data - replace with actual API call
-const mockGames: Game[] = [
-  {
-    id: 'space-defender',
-    title: 'Space Defender',
-    description: 'An exciting space-themed action game where you pilot a spaceship through a dangerous asteroid field. Collect power-ups and coins while avoiding deadly asteroids. The game features smooth controls, particle effects, and progressively increasing difficulty. Test your reflexes and see how high you can score in this endless space adventure!',
-    shortDescription: 'Pilot your spaceship, collect power-ups, and avoid asteroids in this thrilling space adventure',
-    author: 'Aldo',
-    authorGithub: 'Zaboni',
-    category: 'Action',
-    tags: ['action', 'space', 'arcade', 'endless', 'shooter', 'survival'],
-    difficulty: 'Medium',
-    thumbnail: '/games/space-defender/thumbnail.png',
-    screenshots: ['/games/space-defender/screenshot1.png'],
-    playUrl: '/games/space-defender/index.html',
-    createdAt: '2025-06-10',
-    updatedAt: '2025-06-10',
-    featured: true,
-    playCount: 0,
-    rating: 5.0,
-    ratingCount: 1,
-    status: 'active',
-    requirements: {
-      browser: ['Chrome', 'Firefox', 'Safari', 'Edge'],
-      mobile: false,
-      keyboard: true,
-      mouse: false,
-    },
-  },
-  {
-    id: 'puzzle-master',
-    title: 'Puzzle Master',
-    description: 'A challenging logic and brain-teaser game that tests your problem-solving skills with increasingly difficult puzzles. Features 8 progressive levels with number sequences, pattern matching, math puzzles, color sequences, and logic grids. Each level increases in difficulty and includes a scoring system based on efficiency and hints used.',
-    shortDescription: 'Test your logic with challenging puzzles across 8 progressive levels',
-    author: 'Aldo',
-    authorGithub: 'Zaboni',
-    category: 'Puzzle',
-    tags: ['puzzle', 'logic', 'brain-teaser', 'math', 'patterns'],
-    difficulty: 'Medium',
-    thumbnail: '/games/puzzle-master/thumbnail.png',
-    screenshots: ['/games/puzzle-master/screenshot1.png'],
-    playUrl: '/games/puzzle-master/index.html',
-    createdAt: '2025-06-10',
-    updatedAt: '2025-06-10',
-    featured: true,
-    playCount: 0,
-    rating: 5.0,
-    ratingCount: 1,
-    status: 'active',
-    requirements: {
-      browser: ['Chrome', 'Firefox', 'Safari', 'Edge'],
-      mobile: true,
-      keyboard: true,
-      mouse: true,
-    },
-  },
-  {
-    id: 'space-runner',
-    title: 'Space Runner',
-    description: 'An endless runner game set in space with amazing graphics and smooth gameplay! Navigate through asteroids, collect stars, and see how far you can go! Features physics-based movement, particle effects, progressive difficulty, and real-time stats tracking. Control your cyan spaceship through the endless void of space.',
-    shortDescription: 'Navigate through space, collect stars, and avoid asteroids in this endless runner',
-    author: 'Aldo',
-    authorGithub: 'Zaboni',
-    category: 'Action',
-    tags: ['action', 'runner', 'space', 'endless', 'arcade', 'physics'],
-    difficulty: 'Easy',
-    thumbnail: '/games/space-runner/thumbnail.png',
-    screenshots: ['/games/space-runner/screenshot1.png'],
-    playUrl: '/games/space-runner/index.html',
-    createdAt: '2025-06-10',
-    updatedAt: '2025-06-10',
-    featured: true,
-    playCount: 0,
-    rating: 5.0,
-    ratingCount: 1,
-    status: 'active',
-    requirements: {
-      browser: ['Chrome', 'Firefox', 'Safari', 'Edge'],
-      mobile: false,
-      keyboard: true,
-      mouse: false,
-    },
-  },
-  {
-    id: 'memory-cards',
-    title: 'Memory Cards',
-    description: 'Classic memory card matching game with beautiful themes and difficulty levels. Test your memory by flipping cards and finding matching pairs. Features multiple difficulty levels, beautiful card designs, scoring system, and timer challenges. Perfect for all ages and great for improving memory and concentration skills.',
-    shortDescription: 'Match cards and test your memory in this classic game',
-    author: 'Aldo',
-    authorGithub: 'zaboni',
-    category: 'Casual',
-    tags: ['memory', 'cards', 'matching', 'casual', 'puzzle', 'brain-training'],
-    difficulty: 'Easy',
-    thumbnail: '/games/memory-cards/thumbnail.png',
-    screenshots: ['/games/memory-cards/screenshot1.png'],
-    playUrl: '/games/memory-cards/index.html',
-    createdAt: '2025-06-10',
-    updatedAt: '2025-06-10',
-    featured: true,
-    playCount: 0,
-    rating: 5.0,
-    ratingCount: 1,
-    status: 'active',
-    requirements: {
-      browser: ['Chrome', 'Firefox', 'Safari', 'Edge'],
-      mobile: true,
-      keyboard: false,
-      mouse: true,
-      touch: true,
-    },
-  }
-];
+import { getAllGames } from '@/lib/data/games';
 
 interface GameGridProps {
   className?: string;
@@ -126,12 +14,12 @@ export function GameGrid({ className }: GameGridProps) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate API call
+    // Load games from centralized data
     const loadGames = async () => {
       setLoading(true);
-      // Simulate network delay
-      await new Promise(resolve => setTimeout(resolve, 500));
-      setGames(mockGames);
+      // Simulate a small delay for better UX
+      await new Promise(resolve => setTimeout(resolve, 100));
+      setGames(getAllGames());
       setLoading(false);
     };
 

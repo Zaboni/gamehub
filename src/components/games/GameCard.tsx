@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Star, Play, User, Calendar } from 'lucide-react';
 import { Game } from '@/lib/types/game';
-import { ROUTES } from '@/lib/constants';
+import { ROUTES } from '@/lib/constants/routes';
 import { formatNumber, formatDate } from '@/lib/utils';
 import { cn } from '@/lib/utils';
 
